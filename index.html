@@ -3,518 +3,1477 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+
+  <title>RL4F | Offline Reinforcement Learning for Plasma Control in Nuclear Fusion</title>
+  <meta name="title" content="RL4F - Offline Reinforcement Learning for Plasma Control in Nuclear Fusion">
+  <meta name="description" content="RL4F is an offline reinforcement learning benchmark for tokamak plasma profile control, with DIII-D-based closed-loop environments, datasets, and baselines.">
+  <meta name="keywords" content="RL4F, offline reinforcement learning, nuclear fusion, plasma control, tokamak, DIII-D, benchmark, model-based reinforcement learning">
+  <meta name="author" content="Yang Fu, Haomin Bao, Rohit Sonker, Xiaoyan Hu, Aravind Venugopal, Jeff Schneider, Jiayu Chen">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
+
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="og:site_name" content="RL4F Project Page">
+  <meta property="og:title" content="RL4F: Offline Reinforcement Learning for Plasma Control in Nuclear Fusion">
+  <meta property="og:description" content="A benchmark and codebase for offline RL in tokamak plasma profile control, with DIII-D-based closed-loop evaluation and baseline comparisons.">
+  <meta property="og:url" content="https://yywoai66.github.io/RL4F/">
+  <meta property="og:image" content="https://yywoai66.github.io/RL4F/static/images/paper_preview.png">
+  <meta property="og:image:alt" content="RL4F paper preview">
+  <meta property="article:published_time" content="2026-05-19T14:09:29.000Z">
+  <meta property="article:author" content="Yang Fu">
   <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="article:tag" content="offline reinforcement learning">
+  <meta property="article:tag" content="plasma control">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="RL4F: Offline Reinforcement Learning for Plasma Control in Nuclear Fusion">
+  <meta name="twitter:description" content="A benchmark and codebase for offline RL in tokamak plasma profile control.">
+  <meta name="twitter:image" content="https://yywoai66.github.io/RL4F/static/images/paper_preview.png">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <meta name="citation_title" content="Offline Reinforcement Learning for Plasma Control in Nuclear Fusion: Codebase and Benchmark">
+  <meta name="citation_author" content="Fu, Yang">
+  <meta name="citation_author" content="Bao, Haomin">
+  <meta name="citation_author" content="Sonker, Rohit">
+  <meta name="citation_author" content="Hu, Xiaoyan">
+  <meta name="citation_author" content="Venugopal, Aravind">
+  <meta name="citation_author" content="Schneider, Jeff">
+  <meta name="citation_author" content="Chen, Jiayu">
+  <meta name="citation_publication_date" content="2026/05/19">
+  <meta name="citation_conference_title" content="NeurIPS 2026">
+  <meta name="citation_arxiv_id" content="2606.07550">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2606.07550">
 
-
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+  <meta name="theme-color" content="#5975ff">
+  <link rel="icon" type="image/png" href="static/images/rl4f-icon.png">
+  <link rel="shortcut icon" type="image/png" href="static/images/rl4f-icon.png">
+  <link rel="apple-touch-icon" href="static/images/rl4f-icon.png">
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "Offline Reinforcement Learning for Plasma Control in Nuclear Fusion: Codebase and Benchmark",
+    "description": "RL4F is an offline reinforcement learning benchmark for tokamak plasma profile control.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      {"@type": "Person", "name": "Yang Fu", "affiliation": {"@type": "Organization", "name": "The University of Hong Kong"}},
+      {"@type": "Person", "name": "Haomin Bao", "affiliation": {"@type": "Organization", "name": "The University of Hong Kong"}},
+      {"@type": "Person", "name": "Rohit Sonker", "affiliation": {"@type": "Organization", "name": "Carnegie Mellon University"}},
+      {"@type": "Person", "name": "Xiaoyan Hu", "affiliation": {"@type": "Organization", "name": "Carnegie Mellon University"}},
+      {"@type": "Person", "name": "Aravind Venugopal", "affiliation": {"@type": "Organization", "name": "Carnegie Mellon University"}},
+      {"@type": "Person", "name": "Jeff Schneider", "affiliation": {"@type": "Organization", "name": "Carnegie Mellon University"}},
+      {"@type": "Person", "name": "Jiayu Chen", "affiliation": {"@type": "Organization", "name": "The University of Hong Kong"}}
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
+    "datePublished": "2026-05-19",
+    "url": "https://yywoai66.github.io/RL4F/",
+    "image": "https://yywoai66.github.io/RL4F/static/images/paper_preview.png",
+    "keywords": ["offline reinforcement learning", "nuclear fusion", "plasma control", "tokamak", "benchmark"],
     "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
     "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
+      "https://arxiv.org/abs/2606.07550",
+      "https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion"
     ]
   }
   </script>
+
+  <style>
+    :root {
+      color-scheme: light;
+      font: 100%/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      --ink: #363636;
+      --muted: #4a4a4a;
+      --subtle: #6f6f6f;
+      --accent: #3273dc;
+      --pink: #f06bb7;
+      --accent-soft: rgba(50, 115, 220, 0.1);
+      --line: #e7e7e7;
+      --soft: #f6f8fb;
+      --hero-start: #315fd8;
+      --hero-mid: #7d8ff2;
+      --hero-end: #f06bb7;
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      letter-spacing: 0;
+      text-align: center;
+      background: #fff;
+    }
+
+    a { color: var(--accent); }
+    main { overflow: hidden; }
+
+    .more-works-container {
+      position: fixed;
+      right: 1.25rem;
+      top: 1.25rem;
+      z-index: 20;
+      text-align: left;
+    }
+
+    .more-works-btn {
+      align-items: center;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      color: #1f2937;
+      cursor: pointer;
+      display: inline-flex;
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 650;
+      gap: 0.48rem;
+      min-height: 2.6rem;
+      padding: 0 0.98rem;
+      backdrop-filter: blur(22px) saturate(170%);
+      -webkit-backdrop-filter: blur(22px) saturate(170%);
+      transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), background 180ms ease, box-shadow 180ms ease;
+      will-change: transform;
+    }
+
+    .more-works-btn:hover {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
+      transform: translateY(-1px);
+    }
+
+    .more-works-btn:active {
+      transform: scale(0.97);
+      transition-duration: 90ms;
+    }
+
+    .more-works-chevron {
+      font-size: 0.75rem;
+      transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .more-works-container.is-open .more-works-chevron { transform: rotate(180deg); }
+
+    .more-works-dropdown {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 0.7rem);
+      width: min(21rem, calc(100vw - 2.5rem));
+      padding: 0.85rem;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.86);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-0.4rem) scale(0.98);
+      transform-origin: top right;
+      transition: opacity 180ms ease, transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      backdrop-filter: blur(28px) saturate(170%);
+      -webkit-backdrop-filter: blur(28px) saturate(170%);
+    }
+
+    .more-works-container.is-open .more-works-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .more-works-title {
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin: 0 0 0.55rem;
+      padding: 0 0.25rem;
+      text-align: left;
+    }
+
+    .work-item {
+      align-items: center;
+      border-radius: 14px;
+      color: var(--ink);
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      text-decoration: none;
+      transition: background 160ms ease, transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .work-item:hover {
+      background: var(--accent-soft);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .work-item:active { transform: scale(0.98); }
+
+    .work-icon {
+      align-items: center;
+      background: #f1f5fb;
+      border-radius: 12px;
+      color: var(--accent);
+      display: inline-flex;
+      flex: 0 0 2.25rem;
+      height: 2.25rem;
+      justify-content: center;
+    }
+
+    .work-copy { min-width: 0; }
+    .work-copy strong,
+    .work-copy span { display: block; text-align: left; }
+    .work-copy strong { color: var(--ink); font-size: 0.92rem; font-weight: 650; line-height: 1.25; }
+    .work-copy span { color: var(--subtle); font-size: 0.8rem; line-height: 1.35; margin-top: 0.15rem; }
+
+    .hero-shell {
+      color: #fff;
+      min-height: 84vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 1.25rem 4rem;
+      position: relative;
+      background: linear-gradient(135deg, var(--hero-start) 0%, var(--hero-mid) 48%, var(--hero-end) 100%);
+      isolation: isolate;
+    }
+
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 6rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-inner { width: min(1060px, 100%); margin: 0 auto; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      margin: 0 auto 1rem;
+      padding: 0.48rem 0.9rem;
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), background 180ms ease, border-color 180ms ease;
+    }
+
+    .eyebrow:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.36);
+      transform: translateY(-1px);
+    }
+
+    .eyebrow:active {
+      transform: scale(0.98);
+    }
+
+    .eyebrow-logo {
+      border-radius: 7px;
+      display: block;
+      height: 1.35rem;
+      object-fit: cover;
+      width: 1.35rem;
+    }
+
+    .publication-title {
+      color: #fff;
+      font-size: clamp(2.35rem, 5.4vw, 5.4rem);
+      font-weight: 780;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin: 0 auto 1.45rem;
+      max-width: 1120px;
+      text-wrap: balance;
+    }
+
+    .publication-authors,
+    .publication-affiliations,
+    .hero-note {
+      color: rgba(255, 255, 255, 0.9);
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 940px;
+    }
+
+    .publication-authors {
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      font-weight: 540;
+      line-height: 1.65;
+    }
+
+    .publication-authors strong,
+    .publication-authors a { color: #fff; font-weight: 700; }
+
+    .publication-affiliations { font-size: 1rem; line-height: 1.6; margin-top: 0.45rem; }
+    .publication-venue {
+      color: #fff;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 700;
+      line-height: 1.4;
+      margin: 0.45rem auto 0;
+    }
+    .hero-note { color: rgba(255, 255, 255, 0.72); font-size: 0.92rem; margin-top: 0.45rem; }
+    .author-block { display: inline-block; margin: 0 0.18rem; }
+
+    .publication-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      margin: 1.75rem auto 0;
+    }
+
+    .button,
+    .more-works-btn {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .button {
+      transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 180ms ease, background 180ms ease, color 180ms ease, opacity 180ms ease;
+      will-change: transform;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+    }
+
+    .button:active {
+      transform: scale(0.97);
+      transition-duration: 90ms;
+    }
+
+    .publication-links .button {
+      border: 0;
+      font-weight: 650;
+      min-width: 7.6rem;
+      min-height: 2.7rem;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+    }
+
+    .button.is-primary-glass {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(18px) saturate(170%);
+      -webkit-backdrop-filter: blur(18px) saturate(170%);
+    }
+
+    .button.is-primary-glass:hover { background: #fff; color: var(--ink); }
+
+    .button.is-secondary-glass {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.14);
+      outline: 1px solid rgba(255, 255, 255, 0.26);
+      backdrop-filter: blur(18px) saturate(170%);
+      -webkit-backdrop-filter: blur(18px) saturate(170%);
+    }
+
+    .button.is-secondary-glass:hover { background: rgba(255, 255, 255, 0.22); color: #fff; }
+
+    .section {
+      padding: 4.2rem clamp(3rem, 8vw, 8.5rem);
+      text-align: center;
+      background: #fff;
+    }
+
+    .section.is-soft { background: var(--soft); }
+
+    .section.is-final {
+      color: var(--ink);
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:not(#abstract) {
+      text-align: left;
+    }
+
+    .center-wrap {
+      width: min(1280px, 100%);
+      margin: 0 auto;
+    }
+
+    .narrow-wrap {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-kicker {
+      display: block;
+      margin: 0 auto 1.7rem;
+      padding: 0;
+      color: var(--ink);
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+      position: relative;
+      text-transform: none;
+    }
+
+    .section-kicker::after {
+      content: "";
+      display: block;
+      width: 5.4rem;
+      height: 0.22rem;
+      margin: 1.05rem auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--pink));
+    }
+
+    .section:not(#abstract) .section-kicker {
+      margin-left: 0;
+      margin-right: 0;
+      text-align: left;
+    }
+
+    .section:not(#abstract) .section-kicker::after {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .section-kicker .icon { display: none; }
+
+    .section-kicker + .title {
+      color: var(--muted);
+      font-size: 1.12rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.55;
+      margin: 0 auto 1.25rem;
+      max-width: 860px;
+    }
+
+    .section:not(#abstract) .section-kicker + .title {
+      margin-left: 0;
+      margin-right: 0;
+      text-align: left;
+    }
+
+    .title {
+      color: var(--ink);
+      letter-spacing: -0.018em;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .section.is-final .title,
+    .section.is-final .lead { color: var(--ink); }
+
+    .lead {
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.72;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 900px;
+      text-align: justify;
+    }
+
+    .section:not(#abstract) .lead {
+      margin-left: 0;
+      margin-right: 0;
+      text-align: left;
+    }
+
+    .stat-grid,
+    .task-grid,
+    .feature-grid,
+    .pipeline {
+      display: grid;
+      gap: 0.9rem;
+      justify-content: center;
+      margin: 2rem auto 0;
+    }
+
+    .stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .task-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pipeline { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+    .benchmark-figure {
+      margin: 2.15rem auto 0;
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+
+    .benchmark-figure img {
+      display: block;
+      width: 100%;
+      min-width: 820px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .simulator-training {
+      align-items: center;
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: minmax(21rem, 1fr) minmax(15rem, 0.78fr);
+      margin: 2rem auto 0;
+      max-width: 960px;
+    }
+
+    .training-notes {
+      display: grid;
+      gap: 1.15rem;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      height: 100%;
+    }
+
+    .training-note {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+      min-height: 14.5rem;
+      padding: 1.8rem 1.9rem;
+      text-align: left;
+      transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .training-note:hover {
+      border-color: rgba(50, 115, 220, 0.22);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .training-note:focus {
+      outline: 2px solid rgba(65, 105, 225, 0.38);
+      outline-offset: 3px;
+    }
+
+    .training-index {
+      align-items: center;
+      background: #4169e1;
+      border-radius: 999px;
+      color: #fff;
+      display: inline-flex;
+      font-size: 1rem;
+      font-weight: 800;
+      height: 2.2rem;
+      justify-content: center;
+      line-height: 1;
+      margin-bottom: 1.2rem;
+      width: 2.2rem;
+    }
+
+    .training-note h3 {
+      color: var(--ink);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1.25;
+      margin: 0 0 0.72rem;
+    }
+
+    .training-note p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.62;
+      margin: 0;
+    }
+
+    .training-figure {
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      justify-self: center;
+      margin: 0;
+      max-width: 21rem;
+      overflow: hidden;
+      padding: 0.85rem;
+      width: 100%;
+    }
+
+    .training-image-wrap {
+      display: block;
+      position: relative;
+    }
+
+    .training-figure img {
+      display: block;
+      height: auto;
+      max-height: 30rem;
+      max-width: 100%;
+      width: auto;
+    }
+
+    .stage-mask {
+      background: rgba(255, 255, 255, 0.66);
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transform: scale(0.995);
+      transition: opacity 180ms ease, transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .stage-mask.is-stage-1 {
+      inset: 0 0 50% 0;
+    }
+
+    .stage-mask.is-stage-2 {
+      inset: 50% 0 0 0;
+    }
+
+    .simulator-training:has(.training-note[data-stage="1"]:is(:hover, :focus)) .stage-mask.is-stage-2,
+    .simulator-training:has(.training-note[data-stage="2"]:is(:hover, :focus)) .stage-mask.is-stage-1 {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .glass-card,
+    .pipeline-step {
+      height: 100%;
+      padding: 1.1rem 0.95rem;
+      text-align: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .glass-card:hover,
+    .pipeline-step:hover {
+      transform: translateY(-2px);
+      border-color: rgba(50, 115, 220, 0.22);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+    }
+
+    .section.is-soft .glass-card,
+    .section.is-soft .pipeline-step { background: #fff; }
+
+    .section:not(#abstract) .glass-card,
+    .section:not(#abstract) .pipeline-step {
+      text-align: left;
+    }
+
+    .stat-number {
+      color: var(--accent);
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+      font-size: clamp(1.45rem, 2.5vw, 2rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label,
+    .card-copy {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin: 0.45rem auto 0;
+      max-width: 17rem;
+      text-align: center;
+    }
+
+    .section:not(#abstract) .card-copy {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: none;
+      text-align: left;
+    }
+
+    .card-title {
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      margin: 0 auto 0.4rem;
+      text-align: center;
+    }
+
+    .section:not(#abstract) .card-title {
+      margin-left: 0;
+      margin-right: 0;
+      text-align: left;
+    }
+
+    .step-index {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+    }
+
+    .results-table-wrap {
+      margin: 2rem auto 0;
+      max-width: 1120px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .results-table {
+      width: 100%;
+      min-width: 880px;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+
+    .results-table caption {
+      caption-side: top;
+      padding: 1rem 1.2rem 0.8rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    .results-table th,
+    .results-table td {
+      position: relative;
+      padding: 0.72rem 0.9rem;
+      text-align: center;
+      transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease;
+    }
+
+    .results-table th:first-child,
+    .results-table td:first-child {
+      text-align: left;
+      font-weight: 650;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .results-table thead th {
+      border-bottom: 2px solid #2f2f2f;
+      color: var(--ink);
+      font-weight: 750;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .results-table tbody tr.group-start td {
+      border-top: 1.5px solid #2f2f2f;
+    }
+
+    .results-table tbody tr:last-child td {
+      border-bottom: 2px solid #2f2f2f;
+    }
+
+    .results-table tbody tr:hover td {
+      background: rgba(50, 115, 220, 0.07);
+    }
+
+    .results-table[data-hover-col="1"] th:nth-child(1),
+    .results-table[data-hover-col="1"] td:nth-child(1),
+    .results-table[data-hover-col="2"] th:nth-child(2),
+    .results-table[data-hover-col="2"] td:nth-child(2),
+    .results-table[data-hover-col="3"] th:nth-child(3),
+    .results-table[data-hover-col="3"] td:nth-child(3),
+    .results-table[data-hover-col="4"] th:nth-child(4),
+    .results-table[data-hover-col="4"] td:nth-child(4),
+    .results-table[data-hover-col="5"] th:nth-child(5),
+    .results-table[data-hover-col="5"] td:nth-child(5),
+    .results-table[data-hover-col="6"] th:nth-child(6),
+    .results-table[data-hover-col="6"] td:nth-child(6),
+    .results-table[data-hover-col="7"] th:nth-child(7),
+    .results-table[data-hover-col="7"] td:nth-child(7) {
+      background: rgba(240, 107, 183, 0.09);
+    }
+
+    .results-table td:hover,
+    .results-table th:hover {
+      background: linear-gradient(135deg, rgba(50, 115, 220, 0.18), rgba(240, 107, 183, 0.18)) !important;
+      box-shadow: inset 0 0 0 1px rgba(50, 115, 220, 0.22);
+      color: var(--ink);
+    }
+
+    .results-table .best,
+    .results-table td.best:hover {
+      color: #f5b800;
+      font-weight: 800;
+    }
+
+    .visualisation-shell {
+      margin: 2rem auto 0;
+      max-width: 1180px;
+      position: relative;
+    }
+
+    .visualisation-carousel {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .visualisation-track {
+      display: flex;
+      transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform;
+    }
+
+    .visualisation-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+      padding: 1rem;
+    }
+
+    .visualisation-slide figure {
+      margin: 0;
+    }
+
+    .visualisation-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .visualisation-caption {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 0.85rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .visualisation-caption strong {
+      color: var(--ink);
+      display: block;
+      font-weight: 700;
+    }
+
+    .visualisation-count {
+      color: var(--subtle);
+      flex: 0 0 auto;
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+
+    .visualisation-nav {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .visualisation-btn {
+      align-items: center;
+      appearance: none;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      height: 2.55rem;
+      justify-content: center;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      width: 2.55rem;
+    }
+
+    .visualisation-btn:hover {
+      border-color: rgba(50, 115, 220, 0.36);
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .visualisation-btn:active {
+      transform: scale(0.96);
+    }
+
+    .visualisation-dots {
+      align-items: center;
+      display: inline-flex;
+      gap: 0.45rem;
+      min-height: 2.55rem;
+    }
+
+    .visualisation-dot {
+      background: #c9d3e5;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      height: 0.55rem;
+      padding: 0;
+      transition: background 160ms ease, transform 160ms ease, width 160ms ease;
+      width: 0.55rem;
+    }
+
+    .visualisation-dot.is-active {
+      background: var(--accent);
+      transform: scale(1.05);
+      width: 1.55rem;
+    }
+
+    .summary-card {
+      max-width: 900px;
+      margin: 1.25rem auto 0;
+      padding: 0;
+      color: var(--ink);
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .summary-card p {
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.72;
+      margin: 0;
+      max-width: 900px;
+      text-align: left;
+    }
+
+    .bibtex-header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 0 auto 1.8rem;
+      max-width: 1120px;
+    }
+
+    .bibtex-header .title {
+      margin: 0;
+      text-align: left;
+    }
+
+    .bibtex-panel {
+      margin: 0 auto;
+      max-width: 1120px;
+    }
+
+    .button.is-template-dark {
+      background: #4169e1;
+      color: #fff;
+      border: 0;
+      font-weight: 700;
+      min-height: 3rem;
+      min-width: 7rem;
+      box-shadow: 0 10px 22px rgba(65, 105, 225, 0.22);
+    }
+
+    .button.is-template-dark:hover {
+      background: #3158d4;
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(65, 105, 225, 0.28);
+    }
+
+    pre {
+      margin: 0;
+      padding: 2rem 2.15rem;
+      overflow-x: auto;
+      color: #1f2937;
+      background: #f3f6fb;
+      border: 1px solid #e1e7f0;
+      border-radius: 12px;
+      box-shadow: 0 2px 7px rgba(15, 23, 42, 0.05);
+      text-align: left;
+      white-space: pre;
+    }
+
+    pre code {
+      color: inherit;
+      background: transparent;
+      font-size: 1rem;
+      font-weight: 650;
+      line-height: 1.55;
+    }
+
+    .footer {
+      color: rgba(255, 255, 255, 0.78);
+      background: #111111;
+      padding: 2.4rem 1.25rem;
+      text-align: center;
+    }
+
+    .footer p {
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .footer a { color: #bcd4ff; }
+
+    @media screen and (max-width: 980px) {
+      .stat-grid,
+      .task-grid,
+      .feature-grid,
+      .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .simulator-training { grid-template-columns: 1fr; }
+      .training-figure { max-width: 20rem; }
+    }
+
+    @media screen and (max-width: 640px) {
+      .more-works-container { right: 0.8rem; top: 0.8rem; }
+      .hero-shell { min-height: auto; padding-top: 4rem; }
+      .publication-title { letter-spacing: -0.03em; }
+      .stat-grid,
+      .task-grid,
+      .feature-grid,
+      .pipeline { grid-template-columns: 1fr; }
+      .publication-links .button { width: 100%; }
+      .section { padding: 3rem 1.25rem; }
+      .lead,
+      .summary-card p { text-align: left; }
+      .training-note {
+        min-height: auto;
+        padding: 1.35rem;
+      }
+      .training-index {
+        height: 2rem;
+        margin-bottom: 1rem;
+        width: 2rem;
+      }
+      .training-figure { max-width: 18rem; }
+      .training-figure img { max-height: 26rem; }
+      .visualisation-slide { padding: 0.65rem; }
+      .visualisation-caption {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button,
+      .more-works-btn,
+      .more-works-dropdown,
+      .work-item,
+      .glass-card,
+      .pipeline-step,
+      .eyebrow,
+      .training-note,
+      .stage-mask,
+      .visualisation-track,
+      .visualisation-btn,
+      .visualisation-dot,
+      .more-works-chevron { transition: opacity 180ms ease; }
+      .button:hover,
+      .more-works-btn:hover,
+      .work-item:hover,
+      .glass-card:hover,
+      .pipeline-step:hover,
+      .eyebrow:hover,
+      .training-note:hover,
+      .visualisation-btn:hover,
+      .button:active,
+      .more-works-btn:active,
+      .eyebrow:active,
+      .work-item:active { transform: none; }
+      .button:active,
+      .more-works-btn:active,
+      .work-item:active { opacity: 0.78; }
+      .more-works-dropdown { transform: none; }
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .eyebrow,
+      .more-works-btn,
+      .more-works-dropdown,
+      .button.is-primary-glass,
+      .button.is-secondary-glass {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+    }
+
+    @media (prefers-contrast: more) {
+      .glass-card,
+      .pipeline-step,
+      .training-note,
+      .more-works-btn,
+      .more-works-dropdown { border-color: currentColor; }
+    }
+  </style>
 </head>
 <body>
-
-
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
+  <div class="more-works-container" id="moreWorks">
+    <button class="more-works-btn" type="button" onclick="toggleMoreWorks()" aria-expanded="false" aria-controls="moreWorksDropdown">
+      <span class="icon is-small"><i class="fas fa-flask"></i></span>
+      <span>More Works</span>
+      <span class="more-works-chevron"><i class="fas fa-chevron-down"></i></span>
     </button>
     <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
+      <p class="more-works-title">More Works from Our Lab</p>
+      <a class="work-item" href="https://cwi-ral.github.io/CWI-RAL-Webpage/" target="_blank">
+        <span class="work-copy">CWI:Composite Humanoid Whole-Body Imitation System for Loco-manipulation</span>
+      </a>
+      <a class="work-item" href="https://github.com/aravindvenu7/occupancy_reward_shaping" target="_blank">
+        <span class="work-copy">Occupancy Reward Shaping: Improving Credit Assignment for Offline Goal-Conditioned Reinforcement Learning</span>
+      </a>
+      <a class="work-item" href="https://github.com/LucasCJYSDL/BA-MCTS" target="_blank">
+        <span class="work-copy">Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning</span>
+      </a>
     </div>
   </div>
 
-  <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+  <main>
+    <section class="hero-shell">
+      <div class="hero-inner">
+        <a class="eyebrow" href="https://agentic-intelligence-lab.org/" target="_blank" rel="noopener">
+          <img class="eyebrow-logo" src="static/images/agentic-lab-icon.png" alt="" aria-hidden="true">
+          <span>Agentic Intelligence Lab | HKU</span>
+        </a>
+        <h1 class="publication-title">Offline Reinforcement Learning for Plasma Control in Nuclear Fusion</h1>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+        <div class="publication-authors">
+          <span class="author-block"><strong>Yang Fu</strong><sup>*,1</sup>,</span>
+          <span class="author-block"><strong>Haomin Bao</strong><sup>*,1</sup>,</span>
+          <span class="author-block">Rohit Sonker<sup>2</sup>,</span>
+          <span class="author-block">Xiaoyan Hu<sup>2</sup>,</span>
+          <span class="author-block">Aravind Venugopal<sup>2</sup>,</span>
+          <span class="author-block">Jeff Schneider<sup>2</sup>,</span>
+          <span class="author-block">Jiayu Chen<sup>&dagger;,1</sup></span>
+        </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+        <div class="publication-affiliations"><sup>1</sup>The University of Hong Kong, <sup>2</sup>Carnegie Mellon University</div>
+        <div class="publication-venue">NeurIPS 2026</div>
+        <p class="hero-note"><sup>*</sup>Indicates equal contribution. <sup>&dagger;</sup>Indicates corresponding author.</p>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
+        <div class="publication-links">
+          <a href="static/pdfs/rl4f-paper.pdf" target="_blank" class="button is-rounded is-primary-glass">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Paper</span>
+          </a>
+          <a href="https://arxiv.org/abs/2606.07550" target="_blank" class="button is-rounded is-secondary-glass">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
+          <a href="https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion" target="_blank" class="button is-rounded is-secondary-glass">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+          <a href="https://huggingface.co/datasets/Neurips-ED-submission-685/fusion-rl-benchmark" target="_blank" rel="noopener" class="button is-rounded is-secondary-glass">
+            <span class="icon" aria-hidden="true">&#129303;</span>
+            <span>Dataset</span>
+          </a>
+          <a href="#BibTeX" class="button is-rounded is-secondary-glass">
+            <span class="icon"><i class="fas fa-quote-right"></i></span>
+            <span>BibTeX</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
+    <section class="section" id="abstract">
+      <div class="narrow-wrap">
+        <h2 class="section-kicker">Abstract</h2>
+        <p class="lead">
+          Offline reinforcement learning (RL) offers a promising route for developing plasma controllers from historical tokamak data, since online trial-and-error on real devices is costly and risky. However, progress in this direction remains difficult to measure due to the lack of a standardized offline RL benchmark for realistic multi-actuator, long-horizon plasma control problems in nuclear fusion. We introduce RL4F, an Offline Reinforcement Learning Benchmark for Plasma Control in Nuclear Fusion, providing closed-loop evaluation environments and baseline comparisons across four full-profile tracking tasks: rotation, density, temperature, and pressure. The dynamics function underlying the evaluation environment is built from historical discharge data from DIII-D, a real-world tokamak. We evaluate a broad set of imitation learning and offline RL baselines under a unified protocol. We find that offline model-based RL methods obtain the best average performance on most objectives, although no single method dominates all tasks, highlighting the importance of dynamics modeling in complex, long-horizon plasma control tasks. To foster further research, we open-source the codebase, datasets, and evaluation framework, providing a benchmark not only for the fusion community but also for algorithm development in offline RL.
+          We evaluate a broad set of imitation learning and offline RL baselines under a unified protocol. We find that offline model-based RL methods obtain the best average performance on most objectives, although no single method dominates all tasks, highlighting the importance of dynamics modeling in complex, long-horizon plasma control tasks. To foster further research, we open-source the codebase, datasets, and evaluation framework, providing a benchmark not only for the fusion community but also for algorithm development in offline RL.
+        </p>
+      </div>
+    </section>
 
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+    <section class="section" id="simulator">
+      <div class="center-wrap">
+        <h2 class="section-kicker">Simulator</h2>
+        <figure class="benchmark-figure">
+          <img src="static/images/benchmark_rpnn_workflow.png" alt="RL4F benchmark workflow with DIII-D data, RPNN dynamics ensemble, and closed-loop policy evaluation" loading="lazy">
+        </figure>
+        <p class="lead">
+           Given the limited accessibility of real tokamak devices, we train a reference dynamics model as a digital twin. The reference dynamics model is trained from historical DIII-D experimental discharges and is used to generate offline training data and to provide the closed-loop evaluation environment. As shown below, we adopt a two-stage RPNN training procedure.
+        </p>
+        <div class="simulator-training">
+          <div class="training-notes">
+            <div class="training-note" data-stage="1" tabindex="0">
+              <span class="training-index">1</span>
+              <h3>Stage 1 Mean Optimization</h3>
+              <p>The first stage optimizes the predictive mean using a mean-squared error objective.</p>
+            </div>
+            <div class="training-note" data-stage="2" tabindex="0">
+              <span class="training-index">2</span>
+              <h3>Stage 2 Uncertainty Calibration</h3>
+              <p>The second stage initializes from the first-stage checkpoint, freezes the predictive backbone, and trains the log-variance head using a negative log-likelihood objective, thereby calibrating uncertainty without changing the learned mean dynamics.</p>
             </div>
           </div>
+          <figure class="training-figure">
+            <span class="training-image-wrap">
+              <img src="static/images/two_stage_training.png" alt="Two-stage RPNN training procedure with mean prediction and uncertainty calibration" loading="lazy">
+              <span class="stage-mask is-stage-1" aria-hidden="true"></span>
+              <span class="stage-mask is-stage-2" aria-hidden="true"></span>
+            </span>
+          </figure>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="center-wrap">
+        <h2 class="section-kicker">Results</h2>
+        <p class="title is-2">Profile scores across different control tasks (0-100, higher is better). Best score in each column is highlighted in yellow.</p>
+        <div class="results-table-wrap">
+          <table class="results-table" id="profileScoresTable">
+            <caption>Table 7: Profile scores across different control tasks.</caption>
+            <thead>
+              <tr>
+                <th>Algorithm</th>
+                <th>Rotation</th>
+                <th>Density</th>
+                <th>Temperature</th>
+                <th>Pressure</th>
+                <th>Q</th>
+                <th>&beta;<sub>N</sub></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>GCIL</td><td>55.16</td><td>71.60</td><td>62.78</td><td>7.82</td><td>14.76</td><td>13.61</td></tr>
+              <tr class="group-start"><td>TD3BC</td><td>84.13</td><td>76.40</td><td>72.60</td><td>42.75</td><td>38.12</td><td>47.19</td></tr>
+              <tr><td>CQL</td><td>80.74</td><td>73.47</td><td>46.10</td><td>97.27</td><td>14.70</td><td>67.53</td></tr>
+              <tr><td>IQL</td><td>64.96</td><td>78.91</td><td>71.92</td><td>79.95</td><td>13.44</td><td>80.67</td></tr>
+              <tr><td>EDAC</td><td>82.71</td><td>38.23</td><td>18.04</td><td>79.35</td><td>33.52</td><td class="best">100.00</td></tr>
+              <tr><td>MCQ</td><td>72.27</td><td>78.47</td><td>90.97</td><td>66.24</td><td>19.18</td><td>89.86</td></tr>
+              <tr class="group-start"><td>PPO</td><td class="best">100.00</td><td class="best">100.00</td><td class="best">100.00</td><td class="best">100.00</td><td class="best">100.00</td><td class="best">100.00</td></tr>
+              <tr><td>COMBO</td><td>98.20</td><td>96.97</td><td>85.68</td><td class="best">100.00</td><td>66.17</td><td class="best">100.00</td></tr>
+              <tr><td>MOPO</td><td>97.52</td><td>96.11</td><td>97.52</td><td class="best">100.00</td><td>69.84</td><td class="best">100.00</td></tr>
+              <tr><td>MOBILE</td><td>26.86</td><td>12.88</td><td>19.02</td><td>83.62</td><td>10.91</td><td class="best">100.00</td></tr>
+              <tr><td>RAMBO</td><td class="best">100.00</td><td>3.03</td><td>41.44</td><td class="best">100.00</td><td>41.30</td><td class="best">100.00</td></tr>
+              <tr><td>BAMCTS</td><td>8.75</td><td>38.71</td><td>0.53</td><td>0.00</td><td>28.97</td><td>0.00</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <section class="section" id="visualisation-results">
+      <div class="center-wrap">
+        <h2 class="section-kicker">Visualisation Results</h2>
+        <p class="title is-2">Closed-loop tracking rollouts with actuator signals shown side by side.</p>
+        <div class="visualisation-shell" data-visualisation-carousel>
+          <div class="visualisation-carousel">
+            <div class="visualisation-track">
+              <div class="visualisation-slide">
+                <figure>
+                  <img src="static/images/rotation_visualisation_results.png" alt="Rotation visualisation results showing higher and lower target rollouts alongside actuation signals" loading="lazy">
+                  <figcaption class="visualisation-caption">
+                    <span><strong>Rotation control examples</strong>Higher and lower rotation-target cases are displayed together, pairing profile tracking with the corresponding actuator trajectories.</span>
+                    <span class="visualisation-count" data-visualisation-count>1 / 6</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="visualisation-slide">
+                <figure>
+                  <img src="static/images/temperature_visualisation_results.png" alt="Temperature visualisation results showing higher and lower target rollouts alongside actuation signals" loading="lazy">
+                  <figcaption class="visualisation-caption">
+                    <span><strong>Temperature control examples</strong>Higher and lower temperature-target cases are displayed together with power, torque, gas, and ECH actuator signals.</span>
+                    <span class="visualisation-count" data-visualisation-count>2 / 6</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="visualisation-slide">
+                <figure>
+                  <img src="static/images/density_visualisation_results.png" alt="Density visualisation results showing higher and lower target rollouts alongside actuation signals" loading="lazy">
+                  <figcaption class="visualisation-caption">
+                    <span><strong>Density control examples</strong>Higher and lower density-target cases are shown with the associated multi-actuator trajectories.</span>
+                    <span class="visualisation-count" data-visualisation-count>3 / 6</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="visualisation-slide">
+                <figure>
+                  <img src="static/images/pressure_visualisation_results.png" alt="Pressure visualisation results showing higher and lower target rollouts alongside actuation signals" loading="lazy">
+                  <figcaption class="visualisation-caption">
+                    <span><strong>Pressure control examples</strong>Higher and lower pressure-target cases are paired with the corresponding actuator responses.</span>
+                    <span class="visualisation-count" data-visualisation-count>4 / 6</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="visualisation-slide">
+                <figure>
+                  <img src="static/images/q_visualisation_results.png" alt="q visualisation results showing higher and lower target rollouts alongside actuation signals" loading="lazy">
+                  <figcaption class="visualisation-caption">
+                    <span><strong>q control examples</strong>Higher and lower q-target cases illustrate closed-loop tracking behavior and actuator usage.</span>
+                    <span class="visualisation-count" data-visualisation-count>5 / 6</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="visualisation-slide">
+                <figure>
+                  <img src="static/images/betan_visualisation_results.png" alt="betaN visualisation results showing higher and lower target rollouts alongside actuation signals" loading="lazy">
+                  <figcaption class="visualisation-caption">
+                    <span><strong>betaN control examples</strong>Higher and lower betaN-target cases are displayed with the matching actuator trajectories.</span>
+                    <span class="visualisation-count" data-visualisation-count>6 / 6</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="visualisation-nav" aria-label="Visualisation carousel controls">
+            <button class="visualisation-btn" type="button" data-visualisation-prev aria-label="Previous visualisation">
+              <span class="icon is-small"><i class="fas fa-chevron-left"></i></span>
+            </button>
+            <div class="visualisation-dots" data-visualisation-dots aria-label="Visualisation slides"></div>
+            <button class="visualisation-btn" type="button" data-visualisation-next aria-label="Next visualisation">
+              <span class="icon is-small"><i class="fas fa-chevron-right"></i></span>
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
+    </section>
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
+    <section class="section" id="BibTeX">
+      <div class="center-wrap content">
+        <div class="bibtex-header">
+          <h2 class="title is-2">BibTeX</h2>
+          <button class="button is-rounded is-template-dark" onclick="copyBibTeX()" title="Copy BibTeX to clipboard"><span class="icon"><i class="fas fa-copy"></i></span><span id="copy-label">Copy</span></button>
         </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+        <div class="bibtex-panel">
+          <pre id="bibtex-code"><code>@misc{fu2026offline,
+  title={Offline Reinforcement Learning for Plasma Control in Nuclear Fusion: Codebase and Benchmark},
+  author={Fu, Yang and Bao, Haomin and Sonker, Rohit and Hu, Xiaoyan and Venugopal, Aravind and Schneider, Jeff and Chen, Jiayu},
+  year={2026},
+  eprint={2606.07550},
+  archivePrefix={arXiv},
+  primaryClass={cs.LG},
+  url={https://arxiv.org/abs/2606.07550}
 }</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
+        </div>
+      </div>
+    </section>
 
+  </main>
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
+    <div class="container">
+      <p>
+        Project page for <strong>RL4F</strong>. Code is available at
+        <a href="https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion" target="_blank">Offline-RL-Kit-for-Nuclear-Fusion</a>.
+        Page adapted from the
+        <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+      </p>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <script>
+    function toggleMoreWorks(forceOpen) {
+      const menu = document.getElementById("moreWorks");
+      const button = menu.querySelector(".more-works-btn");
+      const isOpen = typeof forceOpen === "boolean" ? forceOpen : !menu.classList.contains("is-open");
+      menu.classList.toggle("is-open", isOpen);
+      button.setAttribute("aria-expanded", String(isOpen));
+    }
 
-    <!-- End of Statcounter Code -->
+    document.addEventListener("click", (event) => {
+      const menu = document.getElementById("moreWorks");
+      if (menu && !menu.contains(event.target)) {
+        toggleMoreWorks(false);
+      }
+    });
 
-  </body>
-  </html>
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        toggleMoreWorks(false);
+      }
+    });
+
+    const profileScoresTable = document.getElementById("profileScoresTable");
+    if (profileScoresTable) {
+      profileScoresTable.querySelectorAll("th, td").forEach((cell) => {
+        cell.addEventListener("mouseenter", () => {
+          profileScoresTable.dataset.hoverCol = String(cell.cellIndex + 1);
+        });
+      });
+      profileScoresTable.addEventListener("mouseleave", () => {
+        delete profileScoresTable.dataset.hoverCol;
+      });
+    }
+
+    document.querySelectorAll("[data-visualisation-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector(".visualisation-track");
+      const slides = Array.from(carousel.querySelectorAll(".visualisation-slide"));
+      const previous = carousel.querySelector("[data-visualisation-prev]");
+      const next = carousel.querySelector("[data-visualisation-next]");
+      const dotsWrap = carousel.querySelector("[data-visualisation-dots]");
+      const counts = Array.from(carousel.querySelectorAll("[data-visualisation-count]"));
+      let activeIndex = 0;
+
+      if (!track || !previous || !next || !dotsWrap || slides.length === 0) return;
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.className = "visualisation-dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Show visualisation ${index + 1}`);
+        dot.addEventListener("click", () => updateVisualisation(index));
+        dotsWrap.appendChild(dot);
+      });
+
+      const dots = Array.from(dotsWrap.querySelectorAll(".visualisation-dot"));
+
+      function updateVisualisation(index) {
+        activeIndex = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${activeIndex * 100}%)`;
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === activeIndex);
+        });
+        counts.forEach((count) => {
+          count.textContent = `${activeIndex + 1} / ${slides.length}`;
+        });
+      }
+
+      previous.addEventListener("click", () => updateVisualisation(activeIndex - 1));
+      next.addEventListener("click", () => updateVisualisation(activeIndex + 1));
+      updateVisualisation(0);
+    });
+
+    function copyBibTeX() {
+      const code = document.querySelector("#bibtex-code code").innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const label = document.getElementById("copy-label");
+        label.innerText = "Copied";
+        window.setTimeout(() => { label.innerText = "Copy"; }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
