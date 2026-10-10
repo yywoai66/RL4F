@@ -1033,6 +1033,93 @@
       text-align: left;
     }
 
+    .tutorial-steps {
+      display: grid;
+      gap: 1.25rem;
+      list-style: none;
+      margin: 1.8rem 0 0;
+      padding: 0;
+    }
+
+    .tutorial-step {
+      min-width: 0;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .tutorial-step h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--ink);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin: 0 0 0.85rem;
+    }
+
+    .tutorial-step .training-index {
+      flex: 0 0 2.2rem;
+      margin: 0;
+    }
+
+    #quick-tutorial p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0.85rem 0;
+    }
+
+    #quick-tutorial pre {
+      max-width: 100%;
+      margin: 0.9rem 0;
+      padding: 1rem 1.2rem;
+      box-shadow: none;
+    }
+
+    #quick-tutorial pre code {
+      font-size: 0.88rem;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    #quick-tutorial p code { overflow-wrap: anywhere; }
+
+    .tutorial-resources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin: 1rem 0;
+    }
+
+    .tutorial-resources .button {
+      white-space: normal;
+      height: auto;
+      min-height: 2.6rem;
+      border-color: var(--line);
+      font-weight: 650;
+    }
+
+    .tutorial-details {
+      min-width: 0;
+      margin-top: 1rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+
+    .tutorial-details summary {
+      color: var(--accent);
+      cursor: pointer;
+      font-weight: 650;
+    }
+
+    .tutorial-details summary:focus-visible,
+    #quick-tutorial a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
     .bibtex-header {
       align-items: center;
       display: flex;
@@ -1260,6 +1347,10 @@
           <a href="https://huggingface.co/datasets/Neurips-ED-submission-685/fusion-rl-benchmark" target="_blank" rel="noopener" class="button is-rounded is-secondary-glass">
             <span class="icon" aria-hidden="true">&#129303;</span>
             <span>Dataset</span>
+          </a>
+          <a href="#quick-tutorial" class="button is-rounded is-secondary-glass">
+            <span class="icon" aria-hidden="true"><i class="fas fa-terminal"></i></span>
+            <span>Quick Tutorial</span>
           </a>
           <a href="#BibTeX" class="button is-rounded is-secondary-glass">
             <span class="icon"><i class="fas fa-quote-right"></i></span>
@@ -1557,6 +1648,96 @@
       </div>
     </section>
 
+
+    <section class="section is-soft" id="quick-tutorial" aria-labelledby="tutorial-title">
+      <div class="center-wrap">
+        <h2 class="section-kicker" id="tutorial-title">Quick Tutorial</h2>
+        <p class="title is-2">Set up RL4F, train a controller, and inspect its tracking performance.</p>
+        <p class="lead">Follow the steps below from the source checkout. For the full configuration and API reference, see the <a href="https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion/blob/release_v1/README.md" target="_blank" rel="noopener">repository README</a>.</p>
+
+        <ol class="tutorial-steps">
+          <li class="tutorial-step">
+            <h3><span class="training-index" aria-hidden="true">1</span>Install the environment</h3>
+            <p>Clone the repository and create the Conda environment. These commands follow the README's PyTorch 2.1.0 / CUDA 11.8 setup.</p>
+            <pre><code>git clone --branch release_v1 https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion.git
+cd Offline-RL-Kit-for-Nuclear-Fusion
+conda env create -f environment.yml
+conda activate offline-rl-fusion
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 \
+  --index-url https://download.pytorch.org/whl/cu118
+pip install -e .</code></pre>
+            <p>Install the dynamics dependency, then return to the RL4F source checkout:</p>
+            <pre><code>git clone https://github.com/IanChar/dynamics-toolbox.git
+cd dynamics-toolbox
+git checkout rohit-tm
+pip install -e .
+cd ..</code></pre>
+          </li>
+
+          <li class="tutorial-step">
+            <h3><span class="training-index" aria-hidden="true">2</span>Prepare the data and models</h3>
+            <p>Download and extract the processed datasets into <code>data/processed/</code>. Place the pre-trained dynamics models in <code>models/train/</code> and <code>models/val/</code>.</p>
+            <div class="tutorial-resources">
+              <a class="button is-rounded" href="https://huggingface.co/datasets/Neurips-ED-submission-685/fusion-rl-benchmark/tree/main/processed" target="_blank" rel="noopener">Download datasets</a>
+              <a class="button is-rounded" href="https://huggingface.co/Neurips-ED-submission-685/fusion-rl-dynamics-model/tree/main" target="_blank" rel="noopener">Download dynamics models</a>
+            </div>
+            <details class="tutorial-details">
+              <summary>Expected directory layout</summary>
+              <pre><code>Offline-RL-Kit-for-Nuclear-Fusion/
+├── data/
+│   └── processed/
+│       ├── full.hdf5
+│       ├── il_data.h5
+│       ├── info.pkl
+│       ├── rl_data.h5
+│       ├── tracking_test.h5
+│       ├── tracking_val.h5
+│       └── used_shots_info.txt
+└── models/
+    ├── train/
+    │   ├── 0/
+    │   ├── 1/
+    │   └── …
+    └── val/</code></pre>
+            </details>
+            <details class="tutorial-details">
+              <summary>Using custom data or model locations</summary>
+              <p>Set the relevant environment variables before training: <code>OFFLINERLKIT_DATA_ROOT</code>, <code>OFFLINERLKIT_RAW_DATA_DIR</code>, <code>OFFLINERLKIT_PROCESSED_DATA_DIR</code>, <code>OFFLINERLKIT_MODEL_ROOT</code>, <code>OFFLINERLKIT_TRAINING_MODEL_DIR</code>, and <code>OFFLINERLKIT_EVALUATION_MODEL_DIR</code>.</p>
+            </details>
+          </li>
+
+          <li class="tutorial-step">
+            <h3><span class="training-index" aria-hidden="true">3</span>Train a policy</h3>
+            <p>Start with the README's temperature-control example:</p>
+            <pre><code>python scripts/run_ppo.py --env profile_control_new --task temp</code></pre>
+            <p>Choose a task matching your data: <code>temp</code>, <code>rotation</code>, <code>dens</code>, <code>pres</code>, <code>q</code>, or <code>betan</code>. Other training entry points include <code>run_cql.py</code>, <code>run_iql.py</code>, <code>run_edac.py</code>, <code>run_td3bc.py</code>, <code>run_combo.py</code>, <code>run_mobile.py</code>, and <code>run_mopo.py</code>.</p>
+            <p>Each script loads its task and algorithm defaults from <code>offlinerlkit/configs/benchmark_configs.json</code>; command-line flags override these defaults. Return plots and policy checkpoints are saved in <code>logs/</code>.</p>
+            <details class="tutorial-details">
+              <summary>Goal-conditioned imitation learning example</summary>
+              <pre><code>python scripts/run_gcil.py --env profile_control --task rotation</code></pre>
+            </details>
+          </li>
+
+          <li class="tutorial-step">
+            <h3><span class="training-index" aria-hidden="true">4</span>Evaluate and visualize tracking</h3>
+            <p>Replace <code>/path/to/your_run_dir</code> with your trained policy's run directory. The visualization script detects the algorithm and saves actuator choices, profile-tracking outputs, and tracking-error summaries.</p>
+            <pre><code>python -m visualization.profile_tracking_save --actor_path /path/to/your_run_dir</code></pre>
+            <p>Add <code>--test</code> to evaluate on the test split:</p>
+            <pre><code>python -m visualization.profile_tracking_save --actor_path /path/to/your_run_dir --test</code></pre>
+            <p>Results are written to <code>results/&lt;task&gt;/&lt;algo&gt;/&lt;val|test&gt;/&lt;run&gt;/&lt;seed&gt;/</code>.</p>
+          </li>
+        </ol>
+
+        <details class="tutorial-details">
+          <summary>Optional: train your own dynamics models</summary>
+          <p>Update <code>data_path</code> and <code>save_path</code> in <code>dynamics/cfgs/rpnn_noshape_gas_benchmark1.yaml</code> and <code>rpnn_noshape_gas_benchmark2.yaml</code>. Before stage two, set its <code>model.load_dir</code> to the model directory produced by stage one.</p>
+          <pre><code>python dynamics/launch_dynamics.py --cn rpnn_noshape_gas_benchmark1
+python dynamics/launch_dynamics.py --cn rpnn_noshape_gas_benchmark2</code></pre>
+          <p>Evaluate the resulting model:</p>
+          <pre><code>python dynamics/reevaluate_dynamics.py --model_dir /path/to/trained_model</code></pre>
+        </details>
+      </div>
+    </section>
 
     <section class="section" id="BibTeX">
       <div class="center-wrap content">
